@@ -2,11 +2,10 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class Program {
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FileInputStream in = null;
 		FileOutputStream out = null;
@@ -22,14 +21,7 @@ public class Program {
 			}
 			
 		}finally {
-			if(in != null)
-			{
-				in.close();
-			}
 			
-			if(out != null) {
-				out.close();
-			}
 		}
 	}
 
