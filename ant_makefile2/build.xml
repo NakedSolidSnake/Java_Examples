@@ -1,0 +1,31 @@
+<project name="Example" default="All">
+	<target name="Clean">
+		<delete dir="build"/>		
+	</target>
+	<target name="Compiling" depends="Clean">		
+        <mkdir dir="build"/>
+		<javac srcdir="." destdir="build" nativeHeaderDir=".">			
+		</javac>
+    </target>
+
+    <target name="Generate-Shared-Library" depends="Compiling">
+        <exec executable="/usr/bin/make">  
+            <arg value="all"/>      
+        </exec>
+    </target>
+
+    <target name="All" depends="Compiling, Generate-Shared-Library">
+    </target>
+    
+	<!-- <target name="Creating-Jar" depends="Compiling, Generate-Shared-Library">
+		<jar destfile="BuildAnt.jar" basedir="build"/>
+	</target> -->
+
+    <!-- <target name="Execute" depends="Compiling">
+        <exec executable="/bin/bash">        
+        <arg value="LD_LIBRARY_PATH=${pwd}"/>
+        <arg value="java"/>
+        <arg value="build/Example"/>
+        </exec>
+    </target> -->
+</project>
